@@ -29,7 +29,45 @@ const dirname = path.dirname(filename)
 
 export default buildConfig({
   //editor: slateEditor({}),
-  editor: lexicalEditor(),
+  editor: lexicalEditor({
+    features({ defaultFeatures }) {
+      return [
+        ...defaultFeatures,
+        // BlocksFeature({
+        //   blocks: [
+        //     {
+        //       slug: 'twoColumnLayout',
+        //       fields: [
+        //         {
+        //           type: 'row',
+        //           fields: [
+        //             {
+        //               name: 'left',
+        //               type: 'richText',
+        //               required: true,
+        //               label: 'Left Column',
+        //               admin: {
+        //                 width: '50%',
+        //               },
+        //             },
+        //             {
+        //               name: 'right',
+        //               type: 'richText',
+        //               required: true,
+        //               label: 'Right Column',
+        //               admin: {
+        //                 width: '50%',
+        //               },
+        //             },
+        //           ],
+        //         },
+        //       ],
+        //     },
+        //   ],
+        // }),
+      ]
+    },
+  }),
   collections: [
     {
       slug: 'pages',
